@@ -28,21 +28,7 @@ public class ManageItemsTester {
                         break;
 
                     case 3:
-                        System.out.println("Please specify atleast one of the following to find the item. Leave all fields blank to return to Customers Menu: ");
-                        System.out.print("Enter Item ID: ");
-                        String itemIdInput = scanner.nextLine();
-                        int itemId = itemIdInput.isEmpty() ? -1 : Integer.parseInt(itemIdInput);
-                        System.out.print("Enter Description: ");
-                        String description = scanner.nextLine();
-                        System.out.print("Enter Price: ");
-                        String priceInput = scanner.nextLine();
-                        double price = priceInput.isEmpty() ? -1 : Double.parseDouble(priceInput);
-                        System.out.print("Enter Quantity: ");
-                        String qtyInput = scanner.nextLine();
-                        int qty = qtyInput.isEmpty() ? -1 : Integer.parseInt(itemIdInput);
-                        System.out.print("Enter Creation Date: ");
-                        String date = scanner.nextLine();
-                        manager.findItem(itemId, description, price,qty, date);
+                        manager.findItem();
                         break;
 
                     case 4:

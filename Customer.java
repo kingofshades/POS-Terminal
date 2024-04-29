@@ -74,7 +74,7 @@ public class Customer {
     }
 
     public void print() {
-        System.out.println(customerID + "\t\t" + name + "\t\t" + email + "\t\t" + phoneNo + "\t\t" + salesLimit);
+        System.out.println(customerID + "\t\t\t" + name + "\t\t" + email + "\t\t" + phoneNo + "\t\t" + salesLimit);
     }
 
     @Override

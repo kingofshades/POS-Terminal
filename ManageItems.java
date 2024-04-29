@@ -20,6 +20,9 @@ class ManageItems {
     public static int getNextItemId() {
         return ++itemID;
     }
+    public static void setNextItemId(int id) {
+        itemID = id;
+    }
 
     public String getDate() {
         date = LocalDateTime.now();
@@ -40,6 +43,7 @@ class ManageItems {
             Item i = new Item(getNextItemId(), description, Double.parseDouble(price), Integer.parseInt(qty),
                     getDate());
             items.add(i);
+            System.out.println("Item Information successfully saved");
         } else if (ch == 2) {
             return;
         } else {
@@ -47,11 +51,25 @@ class ManageItems {
         }
     }
 
-    public void findItem(int itemID, String description, double price, int qty, String dateCreation) {
-        for (Item i : items) {
-            if (itemID == i.getItemID() || description.equals(i.getDescription()) || price == i.getPrice()
-                    || qty == i.getQty() || dateCreation.equals(i.getDateCreation())) {
-                i.print();
+    public void findItem() {
+        System.out.println("Please specify at least one of the following to find the item. Leave all fields blank to return to Customers Menu:");
+        System.out.print("Enter Item ID: ");
+        String itemIDInput = scanner.nextLine();
+        int ID = itemIDInput.isEmpty() ? -1 : Integer.parseInt(itemIDInput);
+        System.out.print("Enter Description: ");
+        String description = scanner.nextLine();
+        System.out.print("Enter Price: ");
+        String priceInput = scanner.nextLine();
+        double price = priceInput.isEmpty() ? -1 : Double.parseDouble(priceInput);
+        System.out.print("Enter Quantity: ");
+        String qtyInput = scanner.nextLine();
+        int qty = qtyInput.isEmpty() ? -1 : Integer.parseInt(qtyInput);
+        System.out.println("------------------------------------------------------------------");
+        System.out.println("Item ID\t\tDescription\t\tPrice\t\tQuantity");
+        System.out.println("------------------------------------------------------------------");
+        for (Item item : items) {
+            if ((item.getItemID() == ID) || item.getDescription().equals(description) || item.getPrice() == price || item.getQty() == qty) {
+                item.print();
             }
         }
     }
@@ -132,6 +150,7 @@ class ManageItems {
                 Item i = new Item(itemID, description, price, qty, date);
                 items.add(i);
             }
+            setNextItemId(items.get(items.size() - 1).getItemID());
         } catch (IOException ioEx) {
             ioEx.printStackTrace();
         }

@@ -54,7 +54,7 @@ class Item {
     }
 
     public void print() {
-        System.out.println(itemID + "\t\t" + description + "\t\t" + price + "\t\t" + qty);
+        System.out.println(itemID + "\t\t" + description + "\t\t\t" + price + "\t\t" + qty);
     }
 
     @Override
