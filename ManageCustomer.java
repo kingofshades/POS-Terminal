@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class ManageCustomer {
-    ArrayList<Customer> customers;
+    static ArrayList<Customer> customers;
     private static int customerID;
     Scanner scanner;
 
@@ -173,6 +173,66 @@ public class ManageCustomer {
             }
         } catch (IOException ioEx) {
             ioEx.printStackTrace();
+        }
+    }
+    static public boolean cExist(int cid){
+        for(Customer c : customers)
+        {
+            if(c.getCustomerID() == cid)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static Customer getCustomer(int cid)
+    {
+        for(Customer c : customers)
+        {
+            if(c.getCustomerID() == cid)
+            {
+                return c;
+            }
+        }
+        return new Customer(-1,"null","null","null","null",-1);
+    } 
+
+    public void manageCustomerMenu() {
+        int choice;
+    
+        while (true) {
+            System.out.println("\nCustomers Menu:");
+            System.out.println("1. Add a new customer");
+            System.out.println("2. Update Customer details");
+            System.out.println("3. Find a customer");
+            System.out.println("4. Remove Existing Customer");
+            System.out.println("5. Back to Main Menu");
+    
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+    
+                switch (choice) {
+                    case 1:
+                        addCustomer();
+                        break;
+                    case 2:
+                        modifyCustomer();
+                        break;
+                    case 3:
+                        findCustomer();
+                        break;
+                    case 4:
+                        removeCustomer();
+                        break;
+                    case 5:
+                        saveCustomers();
+                        return;
+                    default:
+                        System.out.println("Invalid input. Please enter a number from 1 to 5.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
+            }
         }
     }
 }

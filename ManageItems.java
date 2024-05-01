@@ -4,7 +4,7 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 
 class ManageItems {
-    ArrayList<Item> items;
+    static ArrayList<Item> items;
     private static int itemID;
     public LocalDateTime date;
     public String dateCreation;
@@ -165,4 +165,71 @@ class ManageItems {
             ioEx.printStackTrace();
         }
     }
+
+    public static boolean iExist(int iid){
+        for(Item i : items)
+        {
+            if(i.getItemID() == iid)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static Item getItem(int iid)
+    {
+        for(Item i : items)
+        {
+            if(i.getItemID() == iid)
+            {
+                return i;
+            }
+        }
+        return new Item(-1,"null",-1,-1,"null");
+    }
+    public void manageItemMenu() {
+        int choice;
+    
+        while (true) {
+            System.out.println("\nPlease select an option:");
+            System.out.println("1. Add a new item");
+            System.out.println("2. Update Item details");
+            System.out.println("3. Find an item");
+            System.out.println("4. Remove Existing Item");
+            System.out.println("5. Back to Main Menu");
+    
+            try {
+                choice = Integer.parseInt(scanner.nextLine());
+    
+                switch (choice) {
+                    case 1:
+                        addItem();
+                        break;
+                    case 2:
+                        System.out.print("Enter Item ID: ");
+                        String i = scanner.nextLine();
+                        modifyItem(Integer.parseInt(i));
+                        break;
+    
+                    case 3:
+                        findItem();
+                        break;
+    
+                    case 4:
+                        System.out.print("Enter Item ID: ");
+                        String id = scanner.nextLine();
+                        removeItem(Integer.parseInt(id));
+                        break;
+                    case 5:
+                        saveItems();
+                        return;
+                    default:
+                        System.out.println("Invalid input. Please enter a number from 1 to 4.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a number.");
+            }
+        }
+    }
+     
 }
