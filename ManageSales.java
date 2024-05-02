@@ -133,7 +133,27 @@ public class ManageSales {
         }
         System.out.print("Item not found :/ ");
     }
-
+    static public boolean sExist(int sid){
+        for(Sale s : sales)
+        {
+            if(s.getSalesId() == sid)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static Sale getSale(int sid)
+    {
+        for(Sale s : sales)
+        {
+            if(s.getSalesId() == sid)
+            {
+                return s;
+            }
+        }
+        return new Sale(-1,-1,"null","null");
+    } 
     public void loadSales() {
         try (BufferedReader br = new BufferedReader(new FileReader("sales.txt"))) {
             String line;

@@ -5,6 +5,7 @@ public static void main(String[] args) {
     ManageItems itemsManager = new ManageItems();
     ManageCustomer customerManager = new ManageCustomer();
     ManageSales salesManager = new ManageSales();
+    ManagePayments paymentsManager = new ManagePayments();
 
     while (true) {
         System.out.println("\nMain Menu:");
@@ -30,6 +31,7 @@ public static void main(String[] args) {
                     salesManager.MakeSale();
                     break;
                 case 4:
+                    paymentsManager.managePayments();
                     break;
                 case 5:
                     break;
@@ -39,6 +41,7 @@ public static void main(String[] args) {
                     customerManager.saveCustomers();
                     salesManager.saveSales();
                     salesManager.saveSaleLineItems();
+                    paymentsManager.savePayments();
                     System.exit(0);
                 default:
                     System.out.println("Invalid input. Please enter a number from 1 to 6.");
