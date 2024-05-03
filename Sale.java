@@ -5,11 +5,12 @@ public class Sale {
  private String date;
  private double total;
 
-public Sale(int salesId, int customerId, String date, String status) {
+public Sale(int salesId, int customerId, String date, String status,double total) {
     this.salesId = salesId;
     this.customerId = customerId;
     this.date = date;
     this.status = status;
+    this.total = total;
 }
 
 public int getSalesId() {
@@ -53,7 +54,7 @@ public void print() {
 
 @Override
 public String toString() {
-    return salesId + ";" + customerId + ";" + date + ";" + status;
+    return salesId + ";" + customerId + ";" + date + ";" + status + ";" + total;
 }
     
 }

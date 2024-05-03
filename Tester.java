@@ -6,6 +6,7 @@ public static void main(String[] args) {
     ManageCustomer customerManager = new ManageCustomer();
     ManageSales salesManager = new ManageSales();
     ManagePayments paymentsManager = new ManagePayments();
+    ManageReports reportsManager = new ManageReports();
 
     while (true) {
         System.out.println("\nMain Menu:");
@@ -28,12 +29,13 @@ public static void main(String[] args) {
                     customerManager.manageCustomerMenu();
                     break;
                 case 3:
-                    salesManager.MakeSale();
+                    salesManager.makeSale();
                     break;
                 case 4:
                     paymentsManager.managePayments();
                     break;
                 case 5:
+                    reportsManager.manageReportsMenu();
                     break;
                 case 6:
                     scanner.close();

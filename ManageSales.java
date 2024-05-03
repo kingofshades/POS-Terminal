@@ -39,13 +39,13 @@ public class ManageSales {
         return dateCreation;
     }
 
-    public void MakeSale(){
+    public void makeSale(){
         System.out.println("Sale Date: " + getDate());
         System.out.print("Enter CustomerId: ");
         String line = scanner.nextLine().trim();
         int cid = Integer.parseInt(line);
         if(ManageCustomer.cExist(cid)){
-        Sale sale = new Sale(getNextSaleId(),cid,dateCreation,"outstanding");
+        Sale sale = new Sale(getNextSaleId(),cid,dateCreation,"outstanding",0);
         sales.add(sale);
         addSaleItem(sale);
         saleMenu(sale);
@@ -75,6 +75,7 @@ public class ManageSales {
                 System.out.println("Sub-Total: " + subTotal);
                 SaleLineItem lineItem = new SaleLineItem(getNextSaleLineId(), sale.getSalesId(), item.getItemID(), item.getDescription(), qty, subTotal);
                 saleLineItems.add(lineItem);
+                item.setQty(item.getQty()-qty);
                 sale.setTotal(sale.getTotal() + subTotal);
             }
         }
@@ -152,7 +153,7 @@ public class ManageSales {
                 return s;
             }
         }
-        return new Sale(-1,-1,"null","null");
+        return new Sale(-1,-1,"null","null",0);
     } 
     public void loadSales() {
         try (BufferedReader br = new BufferedReader(new FileReader("sales.txt"))) {
@@ -163,7 +164,8 @@ public class ManageSales {
                 int customerId = Integer.parseInt(tokens[1]);
                 String date = tokens[2];
                 String status = tokens[3];
-                Sale s = new Sale(salesId, customerId, date, status);
+                double total = Double.parseDouble(tokens[4]);
+                Sale s = new Sale(salesId, customerId, date, status,total);
                 sales.add(s);
             }
             setNextSaleId(sales.get(sales.size() - 1).getSalesId());
@@ -244,6 +246,8 @@ public class ManageSales {
                     removeSaleItem(currentSale.getSalesId());
                     break;
                 case 4:
+                    saveSales();
+                    saveSaleLineItems();
                     return;
                 default:
                     System.out.println("Invalid input. Please enter a number from 1 to 4.");

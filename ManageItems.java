@@ -151,6 +151,7 @@ class ManageItems {
                 items.add(i);
             }
             setNextItemId(items.get(items.size() - 1).getItemID());
+            br.close();
         } catch (IOException ioEx) {
             ioEx.printStackTrace();
         }
@@ -161,6 +162,8 @@ class ManageItems {
             for (Item i : items) {
                 pw.println(i);
             }
+            pw.flush();
+            pw.close();
         } catch (IOException ioEx) {
             ioEx.printStackTrace();
         }

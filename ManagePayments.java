@@ -61,6 +61,7 @@ public class ManagePayments {
                 {
                     sale.setStatus("Paid");
                 }
+                savePayments();
                 System.out.println("Payment Recorded: Press any key to continue.... ");
                 scanner.nextLine();
                 return;
@@ -88,6 +89,7 @@ public class ManagePayments {
             Receipt receipt = new Receipt(receiptId, salesId, amountPaid);
             receipts.add(receipt);
         }
+        br.close();
     } catch (IOException ioEx) {
         ioEx.printStackTrace();
     }
@@ -98,6 +100,8 @@ public void savePayments() {
         for (Receipt receipt : receipts) {
             pw.println(receipt);
         }
+        pw.flush();
+        pw.close();
     } catch (IOException ioEx) {
         ioEx.printStackTrace();
     }
