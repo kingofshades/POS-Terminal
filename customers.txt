@@ -1,3 +1,21 @@
-1;Armaghan;sda;321;12@rrekr;-17611.0;140000.0
-3;Aslam;432;sdr;324;0.0;4444.0
-4;Hafsa;drfdsr;1321;fdw@tmark;730.0;5400.0
+1;Harry Potter;4 Privet Drive, Little Whinging, Surrey;555-1234;harry.potter@hogwarts.edu;65000.0;100000.0
+2;Hermione Granger;12 Grimmauld Place, London;555-5678;hermione.granger@hogwarts.edu;41370.0;300000.0
+3;Ron Weasley;The Burrow, Ottery St. Catchpole, Devon;555-9012;ron.weasley@hogwarts.edu;0.0;56000.0
+4;Draco Malfoy;Malfoy Manor, Wiltshire;555-3456;draco.malfoy@hogwarts.edu;0.0;75000.0
+5;Albus Dumbledore;Hogwarts School of Witchcraft and Wizardry;555-7890;albus.dumbledore@hogwarts.edu;12045.0;200000.0
+6;Severus Snape;Spinner's End, Cokeworth, West Midlands;555-2345;severus.snape@hogwarts.edu;0.0;90000.0
+7;Sirius Black;12 Grimmauld Place, London;555-6789;sirius.black@hogwarts.edu;0.0;150000.0
+8;Ginny Weasley;The Burrow, Ottery St. Catchpole, Devon;555-4321;ginny.weasley@hogwarts.edu;0.0;80000.0
+9;Luna Lovegood;The Lovegood House, Ottery St. Catchpole, Devon;555-8765;luna.lovegood@hogwarts.edu;1560.0;120000.0
+10;Neville Longbottom;The Longbottom House, England;555-2109;neville.longbottom@hogwarts.edu;10125.0;50000.0
+11;Fred Weasley;The Burrow, Ottery St. Catchpole, Devon;555-6543;fred.weasley@hogwarts.edu;0.0;30000.0
+12;George Weasley;The Burrow, Ottery St. Catchpole, Devon;555-0987;george.weasley@hogwarts.edu;0.0;60000.0
+13;Remus Lupin;12 Grimmauld Place, London;555-5432;remus.lupin@hogwarts.edu;0.0;400000.0
+14;Nymphadora Tonks;12 Grimmauld Place, London;555-8765;nymphadora.tonks@hogwarts.edu;0.0;70000.0
+15;Bellatrix Lestrange;Malfoy Manor, Wiltshire;555-2109;bellatrix.lestrange@hogwarts.edu;2650.0;95000.0
+16;Lucius Malfoy;Malfoy Manor, Wiltshire;555-6543;lucius.malfoy@hogwarts.edu;92865.0;110000.0
+17;Molly Weasley;The Burrow, Ottery St. Catchpole, Devon;555-0987;molly.weasley@hogwarts.edu;0.0;88000.0
+18;Arthur Weasley;The Burrow, Ottery St. Catchpole, Devon;555-4321;arthur.weasley@hogwarts.edu;0.0;42000.0
+19;Minerva McGonagall;Hogwarts School of Witchcraft and Wizardry;555-8765;minerva.mcgonagall@hogwarts.edu;0.0;78000.0
+20;Rubeus Hagrid;Hagrid's Hut, Hogwarts School of Witchcraft and Wizardry;555-2109;rubeus.hagrid@hogwarts.edu;0.0;30000.0
+21;Tom Riddle;Azkaban;555-DEATH5;tom@umt.edu.pk;0.0;9.99999999E8

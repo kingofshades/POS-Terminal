@@ -36,8 +36,8 @@ public class ManagePayments {
             double amountPaid = 0;
             for(Receipt r : receipts)
             {
-                if(r.getsalesId() == sale.getSalesId()){
-                    amountPaid += r.getamountPaid();
+                if(r.getSalesId() == sale.getSalesId()){
+                    amountPaid += r.getAmountPaid();
                 }
             }
             System.out.println("Amount Paid: "+ amountPaid);
@@ -62,7 +62,7 @@ public class ManagePayments {
                     sale.setStatus("Paid");
                 }
                 savePayments();
-                System.out.println("Payment Recorded: Press any key to continue.... ");
+                System.out.println("\nPayment Recorded: Press any key to continue.... ");
                 scanner.nextLine();
                 return;
             }
@@ -89,6 +89,7 @@ public class ManagePayments {
             Receipt receipt = new Receipt(receiptId, salesId, amountPaid);
             receipts.add(receipt);
         }
+        setNextReceiptId(receipts.get(receipts.size() - 1).getReceiptId());
         br.close();
     } catch (IOException ioEx) {
         ioEx.printStackTrace();

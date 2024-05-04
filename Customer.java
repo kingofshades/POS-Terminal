@@ -74,7 +74,7 @@ public class Customer {
     }
 
     public void print() {
-        System.out.println(customerID + "\t\t\t" + name + "\t\t" + email + "\t\t" + phoneNo + "\t\t" + salesLimit);
+        System.out.printf("%-12d %-20s %-20s %-12s %-12.2f%n", customerID, name, email, phoneNo, salesLimit);
     }
 
     @Override

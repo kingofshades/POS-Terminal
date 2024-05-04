@@ -83,13 +83,11 @@ public class ManageSales {
             System.out.print("Invalid ItemId !"); 
         }
     }
-
-    public void endSale(Sale sale){
-        Customer customer = ManageCustomer.getCustomer(sale.getCustomerId());
-        System.out.println("SaleId: " +sale.getSalesId() +"\t\t\t\t\t" + "Customer Id: " + sale.getCustomerId());
-        System.out.println("Sales Date: " +sale.getDate() +"\t\t\t\t" + "Name: " + customer.getName());
+    public void displaySale(Sale sale, Customer customer){
+        System.out.printf( "%-22s %-15s %-25s%n","Sale ID: " + sale.getSalesId()," ", "Customer Id: " + sale.getCustomerId());
+        System.out.printf( "%-22s %-15s %-25s%n","Sale Date: " + sale.getDate()," ", "Customer Name: " + customer.getName());
         System.out.println("\n------------------------------------------------------------------");
-        System.out.println("Item ID\t\tDescription\tQuantity\tAmount");
+        System.out.printf("%-8s %-25s %-8s %-12s%n", "Item ID", "Description", "Quantity", "Amount");
         System.out.println("------------------------------------------------------------------");
         for(SaleLineItem s : saleLineItems)
         {
@@ -100,8 +98,21 @@ public class ManageSales {
 
         }
         System.out.println("------------------------------------------------------------------");
-        System.out.println("\t\t\t\t\tTotal Sales: Rs." + sale.getTotal());
+        System.out.printf("%-35s %-25s%n"," ", "Total Sales: "+sale.getTotal());
         System.out.println("------------------------------------------------------------------");
+    }
+
+    public void endSale(Sale sale){
+        Customer customer = ManageCustomer.getCustomer(sale.getCustomerId());
+        int count = 0;
+        for(SaleLineItem s : saleLineItems)
+        {
+            if(s.getSaleId() == sale.getSalesId())
+            {
+                count++;
+            }
+
+        }
         if(sale.getTotal() > customer.getSalesLimit())
         {
             sales.remove(sale);
@@ -113,8 +124,13 @@ public class ManageSales {
              }   
             }
             System.out.println("Sale not Saved: Limit Exceeded :/");
+        }else if(count == 0)
+        {   
+            sales.remove(sale);
+            System.out.println("Sale not Saved: No Items :/");
         }
         else{
+            displaySale(sale,customer);
             ManageCustomer.getCustomer(sale.getCustomerId()).setPayableAmount(ManageCustomer.getCustomer(sale.getCustomerId()).getPayableAmount()+sale.getTotal());
         }
 
@@ -218,6 +234,25 @@ public class ManageSales {
         } catch (IOException ioEx) {
             ioEx.printStackTrace();
         }
+    }
+    public static boolean sliExist(int itemId){
+        for(SaleLineItem sli : saleLineItems){
+            if(sli.getitemId() == itemId)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static boolean cExist(int cid){
+        for(Sale s : sales)
+        {
+            if(s.getCustomerId() == cid)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void saleMenu(Sale currentSale){

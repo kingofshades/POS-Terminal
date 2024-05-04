@@ -43,7 +43,7 @@ class ManageItems {
             Item i = new Item(getNextItemId(), description, Double.parseDouble(price), Integer.parseInt(qty),
                     getDate());
             items.add(i);
-            System.out.println("Item Information successfully saved");
+            System.out.println("Item Information successfully saved :)");
         } else if (ch == 2) {
             return;
         } else {
@@ -65,7 +65,7 @@ class ManageItems {
         String qtyInput = scanner.nextLine();
         int qty = qtyInput.isEmpty() ? -1 : Integer.parseInt(qtyInput);
         System.out.println("------------------------------------------------------------------");
-        System.out.println("Item ID\t\tDescription\t\tPrice\t\tQuantity");
+        System.out.printf("%-8s %-25s %-12s %-8s%n", "Item ID", "Description", "Price", "Quantity");
         System.out.println("------------------------------------------------------------------");
         for (Item item : items) {
             if ((item.getItemID() == ID) || item.getDescription().equals(description) || item.getPrice() == price || item.getQty() == qty) {
@@ -97,13 +97,7 @@ class ManageItems {
                 if (!newQty.isEmpty()) {
                     item.setQty(Integer.parseInt(newQty));
                 }
-
-                System.out.print("Enter new Creation Date (dd/MM/yyyy): ");
-                String newDateCreation = scanner.nextLine().trim();
-                if (!newDateCreation.isEmpty()) {
-                    item.setDateCreation(newDateCreation);
-                }
-
+                item.setDateCreation(getDate());
                 itemFound = true;
                 break;
             }
@@ -113,9 +107,11 @@ class ManageItems {
             System.out.println("Item not found.");
         }
     }
-
-    // Incomplete
     public void removeItem(int itemID) {
+        if(ManageSales.sliExist(itemID)){
+        System.out.println("Item Sale found: Cannot be deleted :/");
+        }
+        else{
         for (Item i : items) {
             if (itemID == i.getItemID()) {
                 System.out.println("\nEnter 1 to remove the item\tEnter 2 to Cancel");
@@ -135,6 +131,7 @@ class ManageItems {
             }
         }
         System.out.println("Item not found.");
+    }
     }
 
     public void loadItems() {

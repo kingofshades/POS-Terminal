@@ -104,7 +104,7 @@ public class ManageCustomer {
         String salesLimitInput = scanner.nextLine();
         double salesLimit = salesLimitInput.isEmpty() ? -1 : Double.parseDouble(salesLimitInput);
         System.out.println("----------------------------------------------------------------------------------------");
-        System.out.println("Customer ID\t\tName\t\tEmail\t\tPhone\t\tSales Limit");
+        System.out.printf("%-12s %-20s %-20s %-12s %-12s%n", "Customer ID", "Name", "Email", "Phone", "Sales Limit");
         System.out.println("----------------------------------------------------------------------------------------");
         for (Customer customer : customers) {
             if (customer.getCustomerID() == ID ||
@@ -120,7 +120,10 @@ public class ManageCustomer {
     public void removeCustomer() {
         System.out.print("Enter Customer ID to remove: ");
         int ID = Integer.parseInt(scanner.nextLine());
-
+        if(ManageSales.cExist(ID)){
+            System.out.println("Customer Sale found: Cannot be deleted :/");
+        }
+        else{
         for (Customer customer : customers) {
             if (customer.getCustomerID() == ID) {
                 System.out.println("\nEnter 1 to remove the Customer\tEnter 2 to Cancel");
@@ -142,6 +145,7 @@ public class ManageCustomer {
         }
 
         System.out.println("Customer not found.");
+    }
     }
 
     public void loadCustomers() {

@@ -59,7 +59,7 @@ public class SaleLineItem {
     }
 
     public void print() {
-        System.out.println(itemId + "\t\t" + description + "\t\t" + quantity + "\t\t" + amount);
+        System.out.printf("%-8s %-25s %-8d %-12.2f%n", itemId, description, quantity, amount);
     }
 
     @Override

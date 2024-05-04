@@ -54,7 +54,7 @@ class Item {
     }
 
     public void print() {
-        System.out.println(itemID + "\t\t" + description + "\t\t\t" + price + "\t\t" + qty);
+        System.out.printf("%-8d %-25s %-12.2f %-8d%n", itemID, description, price, qty);
     }
 
     @Override

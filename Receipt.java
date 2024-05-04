@@ -8,28 +8,28 @@ public class Receipt {
         this.amountPaid = amountPaid;
     }
 
-    public int getreceiptId() {
+    public int getReceiptId() {
         return receiptId;
     }
 
-    public void setreceiptId(int receiptId) {
+    public void setReceiptId(int receiptId) {
        this.receiptId = receiptId;
     }
 
-    public int getsalesId() {
+    public int getSalesId() {
         return salesId;
     }
 
-    public void setsalesId(int salesId) {
+    public void setSalesId(int salesId) {
         this.salesId = salesId;
     }
 
 
-    public double getamountPaid() {
+    public double getAmountPaid() {
         return amountPaid;
     }
 
-    public void setamountPaid(double amountPaid) {
+    public void setAmountPaid(double amountPaid) {
         this.amountPaid = amountPaid;
     }
     public void print() {
